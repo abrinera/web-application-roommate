@@ -1,0 +1,181 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>roommate</title>
+    <link rel="stylesheet" href="{% static 'favorites.css' %}">
+    <link rel="icon" href="{% static 'img/logo-rm.png' %}" type="image/x-ic">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Play&display=swap" rel="stylesheet"> 
+
+</head>
+<body>
+
+  <script> //For logut button
+    function confirmLogout() {
+      if (confirm("Are you sure you want to logout?")) {
+        // Redirect to the logout URL
+        window.location.href = "roommate";
+      }
+    }
+</script>
+
+<div class="slide-background">
+    <div class="menu_bar">
+    <img src="{% static 'img/roommate-logo-white.png' %}" class="logo">
+    <ul>
+        <li><a href="home">Home</a></li>
+        <li><a href="add_post">Add Post</a></li>
+        <li><a href="my_post">My Post</a></li>
+
+        <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i> <i class="fa fa-caret-down"></i></a>
+            <div class="dropdown_menu">
+                <ul>
+                    <li><a href="profile">Profile</a></li>
+                    <li><a href="favorites">Favorites</a></li>
+                    <li><a href="#"onclick="confirmLogout()">Logout</a></li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+</div>
+
+   <!-- body--> 
+   <div class="container">
+    <div class="view_table">
+      {% if messages %}
+      <div class="messages" style="color:black; font-weight: bold; text-align: center; margin-bottom: 20px">
+        {% for message in messages %}
+      {{ message }}{% if not forloop.last %} | {% endif %}
+       {% endfor %}
+      </div>
+      {% endif %}
+
+
+      <h2 style="text-align: center;">Favorites</h2>
+        <div class="tbl_style">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Location</th>
+                        <th>Tenant Type</th>
+                        <th>Rent</th>
+                        <th>Resident Type</th>
+                        <th>Bed/Room Available</th>
+                        <th>Furnished</th>
+                        <th>Security Deposit</th>
+                        <th>Lease Term</th>
+                        <th>Utility</th>
+                        <th>Non-included</th>
+                        <th>Address</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                  {% for prop in rent%}
+                    <tr>
+                        <td><img src={{prop.image1}} alt=""></td>
+                        <td>{{prop.location}}</td>
+                        <td>{{prop.tenant_type}}</td>
+                        <td>{{prop.rent}}</td>
+                        <td>{{prop.resident_type}}</td>
+                        <td>{{prop.bed}}</td>
+                        <td>{{prop.furnished}}</td>
+                        <td>{{prop.security_deposit}}</td>
+                        <td>{{prop.lease_term}}</td>
+                        <td>{% if prop.utilities_included %}
+                              {% for utility in prop.utilities_included %}
+                                {{ utility }}{% if not forloop.last %}, {% endif %}
+                              {% endfor %}
+                            {% endif %}</td>
+                        <td>{% if prop.non_included_bills %}
+                              {% for non_utility in prop.non_included_bills %}
+                                  {{ non_utility }}{% if not forloop.last %}, {% endif %}
+                              {% endfor %}
+                            {% endif %}</td>
+                        <td>{{prop.address}}</td>
+                        <td><a href="{% url 'view_details' %}?post_id={{ prop.post_id.post_id }}" class="view-link">Click here to view</a></td>
+                        <td><a href="{% url 'remove_fav' %}?post_id={{ prop.post_id.post_id }}" class="view-link"> Remove </a></td>
+                    </tr>
+                    {%endfor%}
+                    <!-- Add more rows as needed -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+  </div>
+
+
+  <!-- Site footer -->
+    <footer class="site-footer">
+        <div >
+          <div class="footer-row">
+            <div class="col-sm-12 col-md-6">
+              <h6>About Roommate.com</h6>
+              <p class="text-justify">Roommate is a user-friendly web app, created by an undergraduate student,
+                designed to revolutionize the way students and young professionals find accommodations.
+                 The app was born out of the motivation to address a common challenge faced by many in Dhaka—finding a
+                 suitable place to live. For students in particular, navigating the rental market in a busy city like Dhaka
+                 can be overwhelming, with limited resources and a lack of reliable platforms catering to their specific needs.</p>
+                 <p>Roommate bridges this gap by providing a seamless platform where users can explore tailored listings, connect 
+                 with potential roommates, and even sublet their spaces effortlessly. Built with simplicity and efficiency in mind,
+                 Roommate offers intuitive features such as detailed profiles, advanced search options, and a focus on fostering 
+                 community trust. Whether you're a student looking to share a flat or someone seeking temporary housing, Roommate makes 
+                 the process faster, easier, and stress-free. By addressing the unique challenges of the rental market in Dhaka, Roommate 
+                 empowers its users to find not just a living space, but a home.</p>
+            </div>
+  
+            <div class="col-xs-6 col-md-3">
+              <h6>Popular Areas</h6>
+              <ul class="footer-links">
+                <li><a href="">Uttara</a></li>
+                <li><a href="">Mirpur</a></li>
+                <li><a href="">Badda</a></li>
+                <li><a href="">Dhanmondi</a></li>
+                <li><a href="">Farmgate</a></li>
+                <li><a href="">Airport</a></li>
+                <li><a href="">Rampura</a></li>
+                <li><a href="">Banani</a></li>
+              </ul>
+            </div>
+  
+            <div class="col-xs-6 col-md-3">
+              <h6>Quick Links</h6>
+              <ul class="footer-links">
+                <li><a href="about_us">About Us</a></li>
+                <li><a href="contact_us">Email Us</a></li>
+                <li><a href="contribute">Contribute</a></li>
+                <li><a href="policy">Policy</a></li>
+                <li><a href="https://maps.app.goo.gl/2XRvxmJK95MWdnw68">Sitemap</a></li>
+              </ul>
+            </div>
+          </div>
+          <hr>
+        </div>
+        <div>
+          <div class="foot">
+            <div class="col-md-4 col-sm-6 col-xs-12">
+              <ul class="social-icons">
+                <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                <li><a class="instagram" href="#"><i class="fa fa-instagram"></i></a></li>
+                <li><a class="whatsapp" href="#"><i class="fa fa-whatsapp"></i></a></li>
+                <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>   
+                <li><a class="github" href="#"><i class="fa fa-github"></i></a></li>
+              </ul>
+            </div>
+            <div class="col-md-8 col-sm-6 col-xs-12">
+                <p class="copyright-text">Copyright &copy; 2024 All Rights Reserved by a student of BUBT | Designed by <a href="https://www.facebook.com/ashvynie.era/">Abrin Azad Era</a>.</p>
+            </div>
+          </div>
+        </div>
+  </footer>
+</body>
+</html>

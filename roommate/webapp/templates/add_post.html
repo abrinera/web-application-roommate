@@ -1,0 +1,278 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>roommate- add post</title>
+    <link rel="stylesheet" href="{% static 'add_post.css' %}"> 
+    <link rel="icon" href="{% static 'img/logo-rm.png' %}" type="image/x-ic">
+
+</head>
+<body>
+    <button class="close-btn" onclick="window.location.href='{% url 'home' %}'">&times;</button>
+    <form action="{% url 'add_post' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h2 style="text-align: center;">Make New Post 📝</h2>
+        <!-- Post Duration -->
+        <label for="duration">Post Duration</label>
+        <select id="duration" name="duration" required>
+            <option selected disabled>Select Time Limit</option>
+            <option value="1">2 Week</option>
+            <option value="2">3 Weeks</option>
+            <option value="3">1 Month</option>
+            <option value="4">2 Month</option>
+        </select>
+        
+        <!-- Tenant Type -->
+        <label for="tenantType">Tenant Type</label>
+        <select id="tenantType" name="tenant_type" required>
+            <option selected disabled>Select Tenant Type</option>
+            <option >Male</option>
+            <option >Female</option>
+            <option >Family</option>
+            <option >None</option>
+        </select>
+
+        <!-- Location -->
+        <label for="location">Location</label>
+        <select id="location" name="location" required>
+            <option selected disabled>Select Location</option>
+            <option >Airport</option>
+            <option >Banasree</option>
+            <option >Banani</option>
+            <option >Banani DOHS</option>
+            <option >Baridhara</option>
+            <option >Bashundhara Residential AreaBlock</option>
+            <option >Badda</option>
+            <option >Cantonment Area</option>
+            <option >Green Road</option>      
+            <option >Gulshan</option>
+            <option >Mirpur</option>
+            <option >Mirpur dohs</option>
+            <option >Nikunjo</option>
+            <option >Purbachal</option>
+            <option >Shaymoli</option>
+            <option >Uttara</option>
+            <option >Uttara Diabari</option>
+        </select>   
+
+
+        <!-- Resident -->
+        <label for="resident">Resident Name</label>
+        <select id="resident" name="resident_type" required>
+            <option selected disabled>Residential</option>
+            <option >Apartment</option>
+            <option >Flat</option>
+            <option >Male Hostel</option>
+            <option >Female Hostel</option>
+            <option >Colony</option>
+        </select>
+
+        <!-- Bed -->
+        <label for="resident">Bed/Room Available</label>
+        <select class="area" name="bed" required>
+            <option selected disabled>Bed/Room Available</option>
+            <option >1 Bed</option>
+            <option >2 Beds</option>
+            <option >3 Beds</option>
+            <option >4+ Beds</option>
+            <option >1 Room</option>
+            <option >2 Rooms</option>
+            <option >3 Rooms</option>
+            <option >4+ Rooms</option>
+        </select>
+
+        <!-- Address -->
+        <label for="address">Address</label>
+        <input type="text" id="address" name="address" placeholder="Enter the address" required>
+
+        <!-- Rent -->
+        <label for="rent">Rent per month (BDT)</label>
+        <input type="number" id="rent" name="rent" placeholder="Enter monthly rent" required>
+
+        <!-- Area -->
+        <label for="area">Area (Square feet)</label>
+        <input type="number" id="area" name="area" placeholder="Enter area in square feet" >
+
+        <!-- Description -->
+        <label for="description">Description</label>
+        <textarea id="description" name="description" rows="4" placeholder="Enter a description of the property" required></textarea>
+
+        <!-- Furnished Options -->
+        <label for="furnished">Furnished</label>
+        <select id="furnished" name="furnished" required>
+            <option selected disabled>Select Furnished Option</option>
+            <option >Full Furnished</option>
+            <option >Not Furnished</option>
+            <option >Partially </option>
+        </select>
+
+        <!-- Security Deposit -->
+        <label for="securityDeposit">Security Deposit</label>
+        <select id="securityDeposit" name="security_deposit" required>
+            <option selected disabled>Select Security Deposit</option>
+            <option value="No Deposit">No Deposit</option>
+            <option value="Half Month Rent">Half Month Rent</option>
+            <option value="1 Month Rent">1 Month Rent</option>
+            <option value="2 Months Rent">2 Months Rent</option>
+        </select>
+
+        <!-- Lease Term -->
+        <label for="leaseTerm">Lease Term</label>
+        <select id="leaseTerm" name="lease_term" required>
+            <option selected disabled>Select Lease Term</option>
+            <option value="No Lease">No Lease</option>
+            <option value="4 Months">4 Months</option>
+            <option value="6 Months">6 Months</option>
+            <option value="1 Year">1 Year</option>
+            <option value="2 Years">2 Years</option>
+            <option value="Other">Other</option>
+        </select>
+    
+
+        <!-- Utilities -->
+        <label>Utilities (Included):</label>
+        <div class="checkbox-group">
+            <input type="checkbox" id="utility-elevator" name="utilities" value="Elevator">
+            <label for="utility-elevator">Elevator</label>
+            
+            <input type="checkbox" id="utility-parking" name="utilities" value="Parking">
+            <label for="utility-parking">Parking</label>
+            
+            <input type="checkbox" id="utility-wifi" name="utilities" value="WIFI">
+            <label for="utility-wifi">WIFI</label>
+            
+            <input type="checkbox" id="utility-pet-ok" name="utilities" value="Pet OK">
+            <label for="utility-pet-ok">Pet OK</label>
+            
+            <input type="checkbox" id="utility-cable-tv" name="utilities" value="Cable TV">
+            <label for="utility-cable-tv">Cable TV</label>
+            
+            <input type="checkbox" id="utility-ac" name="utilities" value="AC">
+            <label for="utility-ac">AC</label>
+            
+            <input type="checkbox" id="utility-oven" name="utilities" value="Oven">
+            <label for="utility-oven">Oven</label>
+            
+            <input type="checkbox" id="utility-generator" name="utilities" value="Generator">
+            <label for="utility-generator">Generator</label>
+            
+            <input type="checkbox" id="utility-fridge" name="utilities" value="Fridge">
+            <label for="utility-fridge">Fridge</label>
+            
+            <input type="checkbox" id="utility-kitchen" name="utilities" value="Kitchen">
+            <label for="utility-kitchen">Kitchen</label>
+            
+            <input type="checkbox" id="utility-washing-machine" name="utilities" value="Washing Machine">
+            <label for="utility-washing-machine">Washing Machine</label>
+
+            <input type="checkbox" id="utility-trash" name="utilities" value="Trash">
+            <label for="utility-trash">Trash Management</label>
+        </div>
+
+        <!-- Non-Included Bills -->
+        <label>Non-Included Bills:</label>
+        <div class="checkbox-group">
+            <input type="checkbox" id="non-bill-water" name="nonIncludedBills" value="Water">
+            <label for="non-bill-water">Water</label>
+            
+            <input type="checkbox" id="non-bill-electricity" name="nonIncludedBills" value="Electricity">
+            <label for="non-bill-electricity">Electricity</label>
+            
+            <input type="checkbox" id="non-bill-gas" name="nonIncludedBills" value="Gas">
+            <label for="non-bill-gas">Gas</label>
+            
+            <input type="checkbox" id="non-bill-wifi" name="nonIncludedBills" value="WIFI">
+            <label for="non-bill-wifi">WIFI</label>
+            
+            <input type="checkbox" id="non-bill-maid" name="nonIncludedBills" value="Maid">
+            <label for="non-bill-maid">Maid</label>
+            
+            <input type="checkbox" id="non-bill-security" name="nonIncludedBills" value="Security Guard">
+            <label for="non-bill-security">Security Guard</label>
+            
+        </div>
+
+        
+
+        <!-- Image Upload (Modern Design) -->
+        <label for="images">Upload Images (up to 4)</label>
+        <div class="upload-container" onclick="document.getElementById('images').click()">
+            <div class="upload-icon">📸</div>
+            <p>Click to select or drag & drop your images here</p>
+            <input type="file" id="images" name="images" accept="image/*" multiple required>
+            <div class="file-list" id="fileList"></div>
+        </div>
+        <small>Note: You can upload up to 4 images.</small>
+
+        <!-- Submit Button -->
+        <div>
+        <button type="submit">Submit</button>
+        </div> 
+    </form>
+
+    <script>
+        const imageInput = document.getElementById("images");
+        const fileList = document.getElementById("fileList");
+
+        imageInput.addEventListener("change", function () {
+            const files = this.files;
+            const maxFiles = 4;
+            fileList.innerHTML = ""; // Clear previous file list
+
+            if (files.length > maxFiles) {
+                alert(`You can upload a maximum of ${maxFiles} images.`);
+                imageInput.value = ""; // Reset the input field
+                return;
+            }
+
+            for (let i = 0; i < files.length; i++) {
+                const file = files[i];
+                const reader = new FileReader();
+
+                reader.onload = function (e) {
+                    const imgElement = document.createElement("img");
+                    imgElement.src = e.target.result;
+
+                    const removeBtn = document.createElement("button");
+                    removeBtn.textContent = "Remove";
+                    removeBtn.classList.add("remove-btn");
+
+                    removeBtn.onclick = function () {
+                        fileList.removeChild(fileItem);
+                    };
+
+                    const fileItem = document.createElement("div");
+                    fileItem.appendChild(imgElement);
+                    fileItem.appendChild(removeBtn);
+
+                    fileList.appendChild(fileItem);
+                };
+
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Drag-and-drop functionality
+        const uploadContainer = document.querySelector(".upload-container");
+
+        uploadContainer.addEventListener("dragover", function (e) {
+            e.preventDefault();
+            uploadContainer.style.borderColor = "#007BFF";
+        });
+
+        uploadContainer.addEventListener("dragleave", function () {
+            uploadContainer.style.borderColor = "#ccc";
+        });
+
+        uploadContainer.addEventListener("drop", function (e) {
+            e.preventDefault();
+            const files = e.dataTransfer.files;
+            imageInput.files = files;
+            imageInput.dispatchEvent(new Event('change'));
+        });
+    </script>
+
+</body>
+</html>

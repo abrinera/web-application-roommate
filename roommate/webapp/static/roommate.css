@@ -1,0 +1,299 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+*
+body { 
+    margin: 0; 
+    background: #171717; 
+    overflow: auto;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.diva{
+    display: flex;
+    width: 100%; 
+    height:110vh;   
+    align-items: center; 
+    justify-content: center; 
+}
+.container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(to top, #eae3d1 60%,#afa2db);
+    width: 40%;  /* 40% of the viewport width */
+    height: 100%; /* 100% of the viewport height */
+    border-radius: 2px;
+    overflow:auto; /* Prevent content overflow */
+}
+
+.logo {
+    width: 500px; /* Adjust size as needed */
+    margin-bottom: 20px;
+}
+
+.button-group {
+    font-family:'Poppins',sans-serif;
+    display: flex;
+    justify-content:space-around;
+    width: 80%; /* Full width of container */
+    gap: 10px;
+}
+
+.btn {
+    display: inline-block;
+   border: 4px solid #55555554;
+   background-color: rgba(116, 116, 116, 0.25);
+   box-shadow: none;
+   color: #666;
+   text-shadow: 0 0 0px transparent;
+   font-size: 20px;
+   font-weight: bold;
+   transition: .2s;
+   padding: 6px 30px;
+   line-height: 40px;
+   margin: 0;
+   border-radius: 20px;
+   cursor:pointer;
+   width: 200px;
+}
+
+.btn:hover {
+    border: 4px solid #a392dd;
+    border-radius: 20px;
+    color: #846fc8;
+    text-shadow: 0 0 8px #a694df;
+    box-shadow: inset 0 0 12px #a392dd, 0 0 15px #a392dd, 0 0 25px #a392dd; /* Enhanced outer glow */
+}
+
+
+.about-us a:hover {
+    color: #9182c4;
+    text-shadow: 0 0 8px #a392dd;
+}
+
+/* CONTENT ANIMATION */
+.txt{
+    font-size: 40px;
+    font-style: italic;
+    color: #eae3d17e;
+    text-shadow: 0 0 4px #a392dd;
+    margin-top: 5px;
+}
+
+.content-text {
+  text-align: center;
+  font-size: 10vw;
+  font-weight: bold;
+  position: relative;
+  margin-left: 3%;
+  margin-right: 3%;
+    .text-hue {
+    margin-top: 12%;
+    background: radial-gradient(rgb(29, 36, 52) 0%, #a392dd 100%) -100px 0 / 100% 200%;
+    background-size: 200% auto;
+    line-height: none;
+    padding: 0 0;
+    background-clip: text;
+    text-emphasis-color: rgba(0, 0, 0, 0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: rgba(0, 0, 0, 0);
+    -webkit-animation: shine 3s linear infinite;
+    animation: shine 3s linear infinite;
+  }
+}
+
+@keyframes shine {
+  to {
+    /* You can control the effect position adjustment by changing the value here. */
+    background-position: 200% center;
+  }
+}
+
+.site-footer
+{
+  background-color:#26272b;
+  padding:45px 0 20px;
+  font-size:15px;
+  line-height:22px;
+  color:#737373;
+}
+.footer-row
+{
+    margin-left: 5%;
+    margin-right: 5%;
+    display: flex;
+    flex-direction: row;
+    gap: 5%;
+
+}
+
+.site-footer hr
+{
+  border-top-color:#bbb;
+  opacity:0.5
+}
+.site-footer hr.small
+{
+  margin:20px 0
+}
+.site-footer h6
+{
+  color:#fff;
+  font-size:16px;
+  text-transform:uppercase;
+  margin-top:5px;
+  letter-spacing:2px
+}
+.site-footer a
+{
+  color:#737373;
+}
+.site-footer a:hover
+{
+  color:#3366cc;
+  text-decoration:none;
+}
+.footer-links
+{
+  padding-left:0;
+  list-style:none
+}
+.footer-links li
+{
+  display:block
+}
+.footer-links a
+{
+  color:#737373
+}
+.footer-links a:active,.footer-links a:focus,.footer-links a:hover
+{
+  color:#3366cc;
+  text-decoration:none;
+}
+.footer-links.inline li
+{
+  display:inline-block
+}
+.site-footer .social-icons
+{
+  text-align:right
+}
+.site-footer .social-icons a
+{
+  width:40px;
+  height:40px;
+  line-height:40px;
+  margin-left:6px;
+  margin-right:0;
+  border-radius:100%;
+  background-color:#33353d
+}
+.foot
+{
+    margin-left: 5%;
+    margin-right: 5%;
+    align-items: center;
+    justify-items: center;
+}
+.copyright-text
+{
+  margin:20px
+}
+@media (max-width:991px)
+{
+  .site-footer [class^=col-]
+  {
+    margin-bottom:30px
+  }
+}
+@media (max-width:767px)
+{
+  .site-footer
+  {
+    padding-bottom:0
+  }
+  .site-footer .copyright-text,.site-footer .social-icons
+  {
+    text-align:center
+  }
+}
+.social-icons
+{
+  padding-left:0;
+  margin-bottom:0;
+  list-style:none
+}
+.social-icons li
+{
+  display:inline-block;
+  margin-bottom:4px
+}
+.social-icons li.title
+{
+  margin-right:15px;
+  text-transform:uppercase;
+  color:#96a2b2;
+  font-weight:700;
+  font-size:13px
+}
+.social-icons a{
+  background-color:#eceeef;
+  color:#818a91;
+  font-size:16px;
+  display:inline-block;
+  line-height:44px;
+  width:44px;
+  height:44px;
+  text-align:center;
+  margin-right:8px;
+  border-radius:100%;
+  -webkit-transition:all .2s linear;
+  -o-transition:all .2s linear;
+  transition:all .2s linear
+}
+.social-icons a:active,.social-icons a:focus,.social-icons a:hover
+{
+  color:#fff;
+  background-color:#29aafe
+}
+.social-icons.size-sm a
+{
+  line-height:34px;
+  height:34px;
+  width:34px;
+  font-size:14px
+}
+.social-icons a.facebook:hover
+{
+  background-color:#3b5998
+}
+.social-icons a.twitter:hover
+{
+  background-color:#00aced
+}
+.social-icons a.linkedin:hover
+{
+  background-color:#007bb6
+}
+.social-icons a.instagram:hover
+{
+  background-color:#ea4c89
+}
+.social-icons a.whatsapp:hover
+{
+  background-color:#399f54
+}
+.social-icons a.github:hover
+{
+  background-color:#6e5494
+}
+@media (max-width:767px)
+{
+  .social-icons li.title
+  {
+    display:block;
+    margin-right:0;
+    font-weight:600
+  }
+}

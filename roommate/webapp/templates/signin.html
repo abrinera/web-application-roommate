@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>roommate-signin</title>
+    <link rel="stylesheet" href="{% static 'signin.css' %}">
+	<link rel="icon" href="{% static 'img/logo-rm.png' %}" type="image/x-ic">
+
+</head>
+<body>
+	<section>
+		<div class="box">
+			{% if messages %}
+    		<div class="messages" style="color:white; font-weight: bold; text-align: center; margin-bottom: 20px">
+      		  {% for message in messages %}
+        	    {{ message }}{% if not forloop.last %} | {% endif %}
+        	{% endfor %}
+    		</div>
+			{% endif %}
+			<div class="container">
+				<div class="form">
+					<h2>Welcome Back</h2>
+					<form action="signin" method= "POST">
+						{% csrf_token %}
+						<div class="inputBox">
+							<input type="username" name="username" placeholder="Username">
+						</div>
+						<div class="inputBox">
+							<input type="password" name="password" placeholder="Password">
+						</div>
+						<div class="inputBox">
+							<input type="submit" value="Login" >
+						</div>
+						<p class="forgot">Forgot password? <a href="#"> Click Here</a></p>
+						<p class="forgot">Don't have account? <a href="signup"> Sign up</a></p>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+</html>

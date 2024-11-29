@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>roommate-AQ and health index</title>
+    <link rel="stylesheet" href="{% static 'accu.css' %}">
+    <link rel="icon" href="{% static 'img/logo-rm.png' %}" type="image/x-ic">
+
+</head>
+<body>
+    <header>
+        <h1>Air Quality and Health Alert Dashboard</h1>
+    </header>
+    <section>
+        <!-- Show data if available -->
+        {% if data %}
+            <h2>Air Quality of {{ location }}: </h2>
+            <p><strong>Air Quality Index:</strong> {{ data.aqi }}</p>
+            <p><strong>Pollution Level:</strong> {{ data.co2 }}</p>
+            <h2>Health and Pest Alerts for {{ location }}: </h2>
+            <ul>
+                <li><strong>Sinus Pressure: </strong>{{ data.sinus }}</li>
+                <li><strong>Allergies (Dust & Dander): </strong>{{ data.allergies }}</li>
+                <li><strong>Mosquito Activity: </strong> {{ data.mosquitoes }}</li>
+                <li><strong>Indoor Pests: </strong>{{ data.indoor_pests }}</li>
+                <li><strong>Outdoor Pests: </strong>{{ data.outdoor_pests }}</li>
+                <li><strong>Flu Activity: </strong>{{ data.flu }}</li>
+                <li><strong>Asthma Activity: </strong> {{ data.asthma }}</li>
+            </ul>
+        <!-- Show error if any -->
+        {% elif error %}
+            <p style="color: red;"><strong>Error:</strong> {{ error }}</p>
+        <!-- Prompt for input -->
+        {% else %}
+            <p>Please enter a location to see weather data.</p>
+        {% endif %}
+    </section>
+</body>
+</html>

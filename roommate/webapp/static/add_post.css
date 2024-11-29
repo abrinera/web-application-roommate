@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+*
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height:auto;
+    background: linear-gradient(to bottom, #9182c4, #eae3d1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Glassmorphism effect for the form container */
+form {
+    background: rgba(49, 48, 48, 0.323); /* Semi-transparent background */
+    /*backdrop-filter: blur(5px);  /*Blurring the background */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    max-width: 700px;
+    width: 100%;
+    margin: 20px;
+    color: #fff;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #fff;
+}
+
+option{
+    color: black;
+}
+
+input, select, textarea, button {
+    width: 90%;
+    margin-left: 1.5%;
+    background: transparent;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 35px;
+    background: rgba(255, 255, 255, 0.2);
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    border-left: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    outline: none;
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: #ffffff;
+    margin-bottom: 20px;
+    font-family: 'Poppins', sans-serif;
+}
+select{
+    width: 95%;
+    margin-left: 2%;
+}
+
+textarea {
+    resize: vertical;
+}
+
+button {
+    background: #fff;
+    color: #666;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-left: 35%;
+    max-width: 200px;
+    transition: 0.3s;
+    border-radius: 25px;
+    font-family: 'Poppins', sans-serif;
+}
+
+button:hover {
+    background: #a392dd;
+    color: #fff;
+}
+
+::placeholder {
+    color: #fff;
+}
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    
+}
+
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    background-color: rgba(54, 53, 53, 0.2);
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 8px 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.checkbox-group input {
+    display: none;
+}
+
+.checkbox-group input:checked + label {
+    background-color: #846fc8;
+    color: white;
+    border-color: #007BFF;
+}
+
+.checkbox-group input + label:hover {
+    background-color: #e6e6e6;
+}
+
+/* Image Upload Styling */
+.upload-container {
+    position: relative;
+    border: 2px dashed #ccc;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.5);
+    transition: border-color 0.3s;
+    cursor: pointer;
+}
+
+.upload-container:hover {
+    border-color: #007BFF;
+}
+
+.upload-container input[type="file"] {
+    display: none;
+}
+
+.upload-container .upload-icon {
+    font-size: 40px;
+    color: #007BFF;
+}
+
+.upload-container p {
+    margin: 10px 0;
+    color: #888;
+}
+
+.upload-container .file-list {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.upload-container .file-list img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.upload-container .remove-btn {
+    background-color: #ff4d4d;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    display: inline-block;
+    margin-top: 5px;
+}
+
+.upload-container .remove-btn:hover {
+    background-color: #e60000;
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 30%;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 26px;
+    height: 26px;
+    border-radius: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+  }
+  

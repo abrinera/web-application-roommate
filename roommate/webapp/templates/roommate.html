@@ -1,0 +1,92 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roommate Web Application</title>
+    <link rel="stylesheet" href="{% static 'roommate.css' %}">
+    <link rel="shortcut icon" href="{% static 'img\logo-rm.png' %}" type="image/x-icon"/>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Play&display=swap" rel="stylesheet"> 
+</head>
+<body>
+    <div class="diva">
+    <div class="content-text">
+        <p class="text-hue">ROOMMATE</p>
+        <p class="txt">"Find Your Perfect Space, Hassle-Free!"</p>
+    </div>
+    <div class="container">
+        <img src="{% static 'img/roommate-logo.png' %}" alt="Logo" class="logo">
+        <div class="button-group">
+            <button class="btn" onclick="window.location.href='{% url 'signin' %}'">Sign in</button>
+            <button class="btn" onclick="window.location.href='{% url 'signup' %}'">Sign up</button>
+        </div>
+    </div>  
+    </div>
+
+    <!-- Site footer -->
+    <footer class="site-footer">
+        <div >
+          <div class="footer-row">
+            <div class="col-sm-12 col-md-6">
+              <h6>About Roommate.com</h6>
+              <p class="text-justify">Roommate is a user-friendly web app, created by an undergraduate student,
+                 designed to revolutionize the way students and young professionals find accommodations.
+                  The app was born out of the motivation to address a common challenge faced by many in Dhaka—finding a
+                  suitable place to live. For students in particular, navigating the rental market in a busy city like Dhaka
+                  can be overwhelming, with limited resources and a lack of reliable platforms catering to their specific needs.</p>
+                  <p>Roommate bridges this gap by providing a seamless platform where users can explore tailored listings, connect 
+                  with potential roommates, and even sublet their spaces effortlessly. Built with simplicity and efficiency in mind,
+                  Roommate offers intuitive features such as detailed profiles, advanced search options, and a focus on fostering 
+                  community trust. Whether you're a student looking to share a flat or someone seeking temporary housing, Roommate makes 
+                  the process faster, easier, and stress-free. By addressing the unique challenges of the rental market in Dhaka, Roommate 
+                  empowers its users to find not just a living space, but a home.</p>
+            </div>
+  
+            <div class="col-xs-6 col-md-3">
+              <h6>Our Developers</h6>
+              <ul class="footer-links">
+                <li><a href="">Abrin Azad Era</a></li>
+                <li><a href="">Murad Ahmed</a></li>
+                <li><a href="">Asif Al Azad</a></li>
+                <li><a href="">Samiya Akter Mim</a></li>
+                <li><a href="">Trisha Majumder</a></li>
+              </ul>
+            </div>
+  
+            <div class="col-xs-6 col-md-3">
+              <h6>Quick Links</h6>
+              <ul class="footer-links">
+                <li><a href="about_us">About Us</a></li>
+                <li><a href="contact_us">Email Us</a></li>
+                <li><a href="contribute">Contribute</a></li>
+                <li><a href="policy">Policy</a></li>
+                <li><a href="https://maps.app.goo.gl/2XRvxmJK95MWdnw68">Sitemap</a></li>
+              </ul>
+            </div>
+          </div>
+          <hr>
+        </div>
+        <div>
+          <div class="foot">
+            <div class="col-md-4 col-sm-6 col-xs-12">
+              <ul class="social-icons">
+                <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                <li><a class="instagram" href="#"><i class="fa fa-instagram"></i></a></li>
+                <li><a class="whatsapp" href="#"><i class="fa fa-whatsapp"></i></a></li>
+                <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>   
+                <li><a class="github" href="#"><i class="fa fa-github"></i></a></li>
+              </ul>
+            </div>
+            <div class="col-md-8 col-sm-6 col-xs-12">
+                <p class="copyright-text">Copyright &copy; 2024 All Rights Reserved by a student of BUBT | Designed by <a href="https://www.facebook.com/ashvynie.era/">Abrin Azad Era</a>.</p>
+            </div>
+          </div>
+        </div>
+  </footer>
+</body>
+</html>
